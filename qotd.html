@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote</title>
+
+    <style>
+
+        .widget {
+            padding: 5px 5px ;
+            color: #448361;
+            text-align: center;
+                max-width: 95%;
+            margin: auto;
+            font-variant-caps: petite-caps;
+            font-size: 2em;
+
+        }
+
+        div {
+             width: 95%;
+             min-height: 100px;
+
+            background:
+                linear-gradient(to right, black 4px, transparent 4px) 0 0,
+                linear-gradient(to right, black 4px, transparent 4px) 0 100%,
+                linear-gradient(to left, black 4px, transparent 4px) 100% 0,
+                linear-gradient(to left, black 4px, transparent 4px) 100% 100%,
+                linear-gradient(to bottom, black 4px, transparent 4px) 0 0,
+                linear-gradient(to bottom, black 4px, transparent 4px) 100% 0,
+                linear-gradient(to top, black 4px, transparent 4px) 0 100%,
+                linear-gradient(to top, black 4px, transparent 4px) 100% 100%;
+
+            background-repeat: no-repeat;
+            background-size: 20px 20px;
+}
+
+     
+    </style>
+</head>
+<body>
+
+    <div class="widget" id="widget"></div>
+
+
+<script>
+
+quotes = [
+    "Learning, like success, is anything but a linear process",
+    "I am in competition with no one. I have no desire to play the game of being better than anyone. I am simply trying to be better than the person I was yesterday.",
+    "If you want to be interesting, you have to be interested.",
+    "It's supposed to be hard. If it were easy, everyone would do it.",
+    "Don’t worry if you’re not where you want to be yet. Great things take time.",
+    "If it's important you'll find a way. If it's not, you'll find an excuse.",
+    "Most people overestimate what they can do in one year and underestimate what they can do in ten years.",
+    "A goal without a plan is just a wish.",
+    "Change your 24 hours and you'll change your life",
+    "Stop thinking you are not qualified, not fit, or not experienced enough.",
+    "Growth takes place when you start doing stuff you are not qualified to do.",
+    "Be who you are and say what you feel, because those who mind don't matter, and those who matter don't mind.",
+    "Twenty years from now you will be more disappointed by the things that you didn't do than by the ones you did do. So throw off the bowlines. Sail away from the safe harbor. Catch the trade winds in your sails. Explore. Dream. Discover.",
+    "Success is not final, failure is not fatal: it is the courage to continue that counts.",
+    "What lies behind us and what lies before us are tiny matters compared to what lies within us.",
+    "Believe you can and you're halfway there.",
+    "Act as if what you do makes a difference. It does.",
+    "Happiness is not something ready made. It comes from your own actions.",
+    "You don’t have to be great to start, but you have to start to be great.",
+    "Strive not to be a success, but rather to be of value.",
+    "Everything you’ve ever wanted is on the other side of fear.",
+    "Hardships often prepare ordinary people for an extraordinary destiny.",
+    "Don’t count the days, make the days count.",
+    "You miss 100% of the shots you don’t take.",
+    "Start where you are. Use what you have. Do what you can.",
+    "If you’re going through hell, keep going.",
+    "It always seems impossible until it’s done.",
+    "Don’t limit your challenges. Challenge your limits.",
+    "Great things never came from comfort zones.",
+    "Success usually comes to those who are too busy to be looking for it.",
+    "Work hard in silence, let success make the noise.",
+    "You are never too old to set another goal or to dream a new dream.",
+    "Discipline is choosing between what you want now and what you want most.",
+    "Don’t wait for opportunity. Create it.",
+    "Small steps every day lead to big results.",
+    "Do what you can, with what you have, where you are.",
+    "Stay away from those people who try to disparage your ambitions.",
+    "Dream big. Start small. Act now.",
+    "The future depends on what you do today.",
+    "Your only limit is your mind.",
+    "Push yourself, because no one else is going to do it for you.",
+    "You’ve got to get up every morning with determination if you’re going to go to bed with satisfaction."
+];
+
+const INTERVAL = 86400000;
+
+function dispalyQuote(){
+
+    document.getElementById('widget').innerHTML =quotes[0];
+    quotes.forEach((quote, i) => {
+        setTimeout(() => {
+            document.getElementById('widget').innerHTML =quote;
+        }, i * INTERVAL);  
+    });
+    }
+
+    function dispalyWidget() {
+        dispalyQuote();
+        setTimeout(dispalyWidget, quotes.length*INTERVAL);
+    }
+    dispalyWidget()
+
+</script>
+
+</body>
+</html>
